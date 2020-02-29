@@ -6,16 +6,25 @@ import Error500 from '../error500/error500.component';
 import Container from 'react-bootstrap/Container'
 
 
-function App() {
-  return (
-    <div className="App">
-      <Container className='border mt-3 w-md-50 w-sm-100'>
-        <Login />
-        <Error404 />
-        <Error500 />
-      </Container>    
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      currentUser: null
+    }
+  }
+  render(){
+    return (
+      <div className="App">
+        <Container className='border mt-3 w-md-50 w-sm-100'>
+          <Login />
+          <Error404 />
+          <Error500 />
+        </Container>    
+      </div>
+    );
+  }
 }
 
 export default App;
