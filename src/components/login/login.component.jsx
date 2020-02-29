@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container'
 
 const Login = () => (
     <div>
-        <Container className='mt-5 w-md-50 w-sm-100 border'>
+        <Container>
             <h1 className='mt-4'>Console Login</h1>
             <Form ClassName='my-3'>
                 <Form.Group className='mt-5' controlId="formBasicEmail">
