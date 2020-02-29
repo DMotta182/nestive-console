@@ -5,8 +5,8 @@ import Container from 'react-bootstrap/Container'
 const Error500 = () => (
     <div>
         <Container>
-            <h1>Server Error</h1>
-            <h2>Error 500</h2>
+            <h2>Server Error</h2>
+            <h3>Error 500</h3>
             <Button>
                 Go Back
             </Button>

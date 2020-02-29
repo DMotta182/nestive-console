@@ -4,7 +4,7 @@ import Login from '../login/login.component';
 import Error404 from '../error404/error404.component';
 import Error500 from '../error500/error500.component';
 import Container from 'react-bootstrap/Container'
-//import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 class App extends React.Component {
@@ -32,9 +32,21 @@ class App extends React.Component {
                   }
               }
             }
-            <Login />
-            <Error404 />
-            <Error500 />
+            {/* This is for accesing the components for testing purposes*/}
+            <BrowserRouter>
+              <Switch>
+                <Route exact path='/login'>
+                  <Login />
+                </Route>
+                <Route exact path='/404'>
+                  <Error404 />
+                </Route>
+                <Route exact path='/500'>
+                  <Error500 />
+                </Route>
+              </Switch>
+            </BrowserRouter>
+            
         </Container>    
       </div>
     );
