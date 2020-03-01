@@ -8,7 +8,7 @@ cache:                      # no need if not node project
     - node_modules/         # no need if not node project
   key: "$CI_REPOSITORY_URL" # no need if not node project
 
-deploy-prod:
+deploy-dev:
   stage: deploy
   only:
     - dev
