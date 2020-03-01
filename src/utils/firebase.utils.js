@@ -1,8 +1,8 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import app from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firebase-firestore'
 
-const firebaseConfig = {
+const config = {
     apiKey: "AIzaSyBHudR0hXvMf2pvVss6QVdirEEH4QY14q8",
     authDomain: "nesstive-console-dev.firebaseapp.com",
     databaseURL: "https://nesstive-console-dev.firebaseio.com",
@@ -12,10 +12,20 @@ const firebaseConfig = {
     appId: "1:683644316048:web:348b9b655bb9d4946b6b15"
   };
 
-firebase.initializeApp(firebaseConfig);
+  class Firebase {
+	constructor() {
+		app.initializeApp(config)
+		this.auth = app.auth()
+		this.db = app.firestore()
+	}
 
+	login(email, password) {
+		return this.auth.signInWithEmailAndPassword(email, password)
+	}
 
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+	logout() {
+		return this.auth.signOut()
+	}
+}
 
-export default firebase;
+export default new Firebase()

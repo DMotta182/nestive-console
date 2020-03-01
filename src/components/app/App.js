@@ -44,6 +44,11 @@ class App extends React.Component {
                 <Route exact path='/500'>
                   <Error500 />
                 </Route>
+                <Route exact path='/main'>
+                  <div>
+                    Logged In and ready
+                  </div>
+                </Route>
               </Switch>
             </BrowserRouter>
             
