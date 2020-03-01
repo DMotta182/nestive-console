@@ -1,0 +1,19 @@
+image: rambabusaravanan/firebase
+
+stages:
+  - deploy
+
+cache:                      # no need if not node project
+  paths:                    # no need if not node project
+    - node_modules/         # no need if not node project
+  key: "$CI_REPOSITORY_URL" # no need if not node project
+
+deploy-prod:
+  stage: deploy
+  only:
+    - dev
+  script:
+    - yarn              # no need if not node project
+    - yarn run build    # no need if not node project
+    - firebase use nesstive-console-dev --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting -m "Pipe $CI_PIPELINE_ID Build $CI_BUILD_ID @ Hash ${CI_COMMIT_SHA:0:7}" --token $FIREBASE_TOKEN
