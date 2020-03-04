@@ -3,11 +3,12 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import firebase from '../../utils/firebase.utils';
+import { useHistory } from 'react-router-dom';
 
 const Login = (props) => { 
 
     //const { classes } = props
-
+    const history = useHistory();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     return(
@@ -33,10 +34,13 @@ const Login = (props) => {
     );
 
     async function login() {
+
+        
         try {
             console.log('email', email)
             console.log('password', password)
             await firebase.login(email, password)
+            .then(history.push('/index'))
             console.log('Logged in')
         } catch (error) {
             alert(error.message)

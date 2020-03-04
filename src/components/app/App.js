@@ -3,6 +3,7 @@ import './App.css';
 import Login from '../login/login.component';
 import Error404 from '../error404/error404.component';
 import Error500 from '../error500/error500.component';
+import Error403 from '../error403/error403.component';
 import Container from 'react-bootstrap/Container'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -44,7 +45,10 @@ class App extends React.Component {
                 <Route exact path='/500'>
                   <Error500 />
                 </Route>
-                <Route exact path='/main'>
+                <Route exact path='/403'>
+                  <Error403 />
+                </Route>
+                <Route exact path='/index'>
                   <div>
                     Logged In and ready
                   </div>
